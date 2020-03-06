@@ -1,0 +1,17 @@
+{
+  "name": "piaowa/piaowa",
+  "description": "The Framework.",
+  "keywords": ["framework", "laravel"],
+  "license": "piaowa",
+  "type": "framework",
+  "require": {
+    "php": ">=7.0",
+    "filp/whoops": "^2.7"
+  },
+  "repositories": {
+    "packagist": {
+      "type": "composer",
+      "url": "https://packagist.phpcomposer.com"
+    }
+  }
+}
