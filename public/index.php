@@ -8,7 +8,11 @@
 // 调试模式
 define('DEBUG', true);
 // 根目录
-define('ROOT',  dirname(__DIR__));
+define('ROOT_PATH',  dirname(__DIR__));
+
 
 // 公共方法
-include ROOT.'/core/function.php';
+include ROOT_PATH.'/piaowa/core/function.php';
+
+$a = \piaowa\Config::get('database');
+var_dump($a);
