@@ -8,6 +8,12 @@
     "php": ">=7.0",
     "filp/whoops": "^2.7"
   },
+  "autoload": {
+    "files":[],
+    "psr-4":{
+      "piaowa\\" :"piaowa/"
+    }
+  },
   "repositories": {
     "packagist": {
       "type": "composer",

@@ -1,6 +1,72 @@
 <?php
+/**
+ * 获取get数据
+ * @param string $str 变量名
+ * @param string $filter 过滤方式 int为只支持int类型
+ * @param string $default 默认值 当获取不到值时,所返回的默认值
+ * @return mix
+ */
+function get($str = false, $filter = '', $default = false)
+{
+    if ($str !== false) {
+        $return = isset($_GET[$str]) ? $_GET[$str] : false;
+        if ($return) {
+            switch ($filter) {
+                case 'int':
+                    if (!is_numeric($return)) {
+                        return $default;
+                    }
+                    break;
+                default:
+                    $return = htmlspecialchars($return);
 
-// 获取随机字符串
+            }
+            return $return;
+        } else {
+            return $default;
+        }
+    } else {
+        return $_GET;
+    }
+}
+
+/**
+ * 获取post数据
+ * @param $str 变量名
+ * @param $filter 过滤方式 int为只支持int类型
+ * @param $default 默认值 当获取不到值时,所返回的默认值
+ * @return mix
+ */
+function post($str = false, $filter = '', $default = false)
+{
+    if ($str !== false) {
+        $return = isset($_POST[$str]) ? $_POST[$str] : false;
+        if ($return !== false) {
+            switch ($filter) {
+                case 'int':
+                    if (!is_numeric($return)) {
+                        return $default;
+                    }
+                    break;
+                default:
+                    $return = htmlspecialchars($return);
+
+            }
+            return $return;
+        } else {
+            return $default;
+        }
+    } else {
+        return $_POST;
+    }
+}
+
+/**
+ * 获取随机字符串
+ * @param $len 获取的字符串长度
+ * @param string $type 类型
+ * @return string
+ */
 function comm_rand_str($len, $type = 'all')
 {
     switch ($type) {
@@ -22,7 +88,7 @@ function comm_rand_str($len, $type = 'all')
     return $str;
 }
 
-//参数排序输出
+// 参数排序输出
 function get_sign_rank($params)
 {
     ksort($params);//将参数按key进行排序
