@@ -61,6 +61,28 @@ function post($str = false, $filter = '', $default = false)
     }
 }
 
+function ajaxReturn($data = [], $msg = 'ok', $code = 0)
+{
+    $result = array(
+        'code'=>$code,
+        'msg'=>$msg,
+        'data'=>$data
+    );
+    echo json_encode($result,JSON_UNESCAPED_UNICODE);
+    exit();
+}
+
+function ajaxReturnError($msg = 'ok', $code = -1)
+{
+    $result = array(
+        'code'=>$code,
+        'msg'=>$msg,
+        'data'=>[]
+    );
+    echo json_encode($result,JSON_UNESCAPED_UNICODE);
+    exit();
+}
+
 /**
  * 获取随机字符串
  * @param $len 获取的字符串长度

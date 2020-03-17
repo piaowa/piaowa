@@ -1,7 +1,7 @@
 <?php
 // 路径是基于根目录
 return array(
-    'logPath' => 'logs',
+    // 数据库
     'database' => array(
         'type' => 'mysql',
         'host' => '127.0.0.1',
@@ -9,11 +9,24 @@ return array(
         'username' => 'root',
         'password' => 'piaowa',
     ),
+    // redis缓存
     'redis' => array(
         'host' => '127.0.0.1',
         'port' => '6379',
         'username' => '',
         'password' => '',
-        'index'=>0,
+        'index' => 0,
     ),
+    // 默认路由
+    'route' => array(
+        'preg' => '/^[a-zA-Z]+(\/[a-zA-Z]*)?$/',
+        'default' => 'index/index',
+        'defaultAction' => 'index',
+    ),
+    // 日志目录
+    'logPath' => 'logs',
+    // 控制器目录
+    'controllerPath'=>'app/controller',
+    // 模型目录
+    'modelPath'=>'app/model',
 );

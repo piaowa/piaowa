@@ -8,9 +8,18 @@ namespace piaowa\core;
 class Config
 {
     static public $myConfig;
+    static public $envConfig;
 
-    static public function get($config, $name = 'all')
+    static public function init($config){
+        self::$envConfig = $config;
+        self::get('all', $config);
+    }
+
+    static public function get($name = 'all', $config = '')
     {
+        if($config == ''){
+            $config = self::$envConfig;
+        }
         // 已经存在配置
         if (isset(self::$myConfig[$config][$name])) {
             return self::$myConfig[$config][$name];
@@ -21,6 +30,7 @@ class Config
         // 3、载入配置
         $configFile = ROOT_PATH . '/config/' . $config . '.php';
         if (is_file($configFile)) {
+//            echo '载入配置文件'.$config;
             $configArr = include_once $configFile;
             if ($name == 'all') {
                 self::$myConfig[$config] = $configArr;
@@ -29,7 +39,7 @@ class Config
                 self::$myConfig[$config][$name] = $configArr[$name];
                 return $configArr[$name];
             } else {
-                throw new Exception('invalid config');
+                throw new \Exception('invalid config');
             }
         } else {
             throw new \Exception('invalid file');
