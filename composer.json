@@ -6,7 +6,10 @@
   "type": "framework",
   "require": {
     "php": ">=7.0",
-    "filp/whoops": "^2.7"
+    "filp/whoops": "^2.7",
+    "catfan/medoo": "^1.7",
+    "symfony/var-dumper": "^5.0",
+    "psr/log": "^1.1"
   },
   "autoload": {
     "files":[],

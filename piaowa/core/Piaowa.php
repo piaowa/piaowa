@@ -1,15 +1,10 @@
 <?php
 
 namespace piaowa\core;
-
-use mysql_xdevapi\Exception;
-
 class Piaowa
 {
     public function __construct()
     {
-//        self::$errorMsg = Config::get('all', 'error_msg');
-//        var_dump(self::$errorMsg);
     }
 
     static public function run()
@@ -24,7 +19,7 @@ class Piaowa
             $class = new $runClass;
             $tryArr = array($class, $action);
             if (is_callable($tryArr)) {
-                if($class->before($class, $action)){
+                if ($class->before($class, $action)) {
                     $class->$action();
                 }
                 $class->after($class, $action);
