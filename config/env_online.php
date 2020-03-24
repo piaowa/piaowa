@@ -4,7 +4,7 @@ return array(
     // 数据库
     'database' => array(
         'database_type' => 'mysql',
-        'database_name' => 'yxxt',
+        'database_name' => 'piaowa',
         'server' => '127.0.0.1',
         'username' => 'root',
         'password' => 'piaowa',

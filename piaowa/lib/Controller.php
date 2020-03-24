@@ -5,11 +5,13 @@
  */
 
 namespace piaowa\lib;
+
+use piaowa\core\Piaowa;
+
 class Controller
 {
     public function __construct()
     {
-
     }
 
     /**
@@ -18,9 +20,11 @@ class Controller
      * @param $action
      * @return bool
      */
-    public function before($class, $action)
+    public function before()
     {
 //        echo 'before';
+//        echo Piaowa::$router->myClass;
+//        echo Piaowa::$router->myAction;
         return true;
     }
 
@@ -29,7 +33,7 @@ class Controller
      * @param $class
      * @param $action
      */
-    public function after($class, $action)
+    public function after()
     {
 //        echo 'after';
     }

@@ -1,11 +1,11 @@
 <?php
 /**
- * 路由控制累
+ * 路由控制类
  * 默认方式： xx.com/控制器/方法
  */
 
 namespace piaowa\core;
-class Router extends Piaowa
+class Router
 {
     public $route;
     public $myClass;
