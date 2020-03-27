@@ -9,7 +9,9 @@
     "filp/whoops": "^2.7",
     "catfan/medoo": "^1.7",
     "symfony/var-dumper": "^4.0",
-    "psr/log": "^1.1"
+    "psr/log": "^1.1",
+    "endroid/qr-code": "^3.5",
+    "ext-gd": "*"
   },
   "autoload": {
     "files":[],

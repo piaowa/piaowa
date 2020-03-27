@@ -13,15 +13,17 @@ use piaowa\core\Piaowa;
 
 class Database extends Piaowa
 {
-    static public $medoo = null;
+    static public $mysql;
 
-    static public function medoo($options = null)
+    static public function init($options = null)
     {
-        if (self::$medoo == null) {
-            $options = $options ? $options : Config::get('database');
-            self::$medoo = new Medoo($options);
-            Piaowa::$logger->info('连接数据库', []);
+        $options = $options ? $options : Config::get('database');
+        $key = $options['server'] . '_' . $options['database_name'];
+        if (!isset(self::$mysql[$key])) {
+            self::$mysql[$key] = new Medoo($options);
+            Piaowa::$logger->info('连接数据库', $options);
         }
-        return self::$medoo;
+        return self::$mysql[$key];
+
     }
 }

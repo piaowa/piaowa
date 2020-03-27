@@ -15,8 +15,7 @@ return array(
     'redis' => array(
         'host' => '127.0.0.1',
         'port' => '6379',
-        'username' => '',
-        'password' => '',
+        'auth' => 'piaowa',
         'index' => 0,
     ),
     // 默认路由
