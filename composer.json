@@ -15,7 +15,8 @@
   "autoload": {
     "files":[],
     "psr-4":{
-      "piaowa\\" :"piaowa/"
+      "piaowa\\" :"piaowa/",
+      "extend\\": "extend/"
     }
   },
   "repositories": {

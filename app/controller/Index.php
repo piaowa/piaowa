@@ -2,6 +2,8 @@
 
 namespace app\controller;
 
+use extend\imagick\Imagick;
+use extend\PHPExcel\ExcelExport;
 use piaowa\core\Config;
 use piaowa\core\Piaowa;
 use piaowa\lib\Controller;
@@ -28,7 +30,19 @@ class Index extends Controller
 
     public function test()
     {
-
+        $data = array(
+            'head' => ['第一列', '第二列', '第三列', '第四列'],
+            'column' => array(
+                ['id' => 1, 'name' => 'pp', 'age' => 23, 'ip' => '215'],
+                ['id' => 2, 'name' => 'pwp', 'age' => 13, 'ip' => '2515'],
+                ['id' => 3, 'name' => 'pdp', 'age' => 223, 'ip' => '2125'],
+                ['id' => 4, 'name' => 'p5p', 'age' => 253, 'ip' => '21asd5'],
+            ),
+        );
+//        $excel  = new ExcelExport();
+//        $excel->excelData($data, 'abc');
+        ExcelExport::get_instance()->excelData($data, 'lalal');
+        exit;
 
 //        $qrCode = new QrCode('Life is too short to be generating QR codes');
 
@@ -50,7 +64,7 @@ class Index extends Controller
 //        $redis->incrby('abc', 3);
 //        Piaowa::$logger->info('日志', $ary);
         $a = array(
-            '0.1'=>3,
+            '0.1' => 3,
         );
         dump($a);
 //        exit;

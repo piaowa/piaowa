@@ -7,6 +7,7 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'piaowa\\' => array($baseDir . '/piaowa'),
+    'extend\\' => array($baseDir . '/extend'),
     'Zxing\\' => array($vendorDir . '/khanamiryan/qrcode-detector-decoder/lib'),
     'Whoops\\' => array($vendorDir . '/filp/whoops/src/Whoops'),
     'Symfony\\Polyfill\\Php72\\' => array($vendorDir . '/symfony/polyfill-php72'),
